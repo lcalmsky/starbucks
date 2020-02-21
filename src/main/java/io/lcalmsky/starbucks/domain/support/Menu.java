@@ -5,12 +5,15 @@ import lombok.RequiredArgsConstructor;
 
 import java.util.Optional;
 
-public enum Menu {
-    ;
+public interface Menu {
+
+    String getName();
+
+    int getPrice();
 
     @RequiredArgsConstructor
     @Getter
-    public enum ColdBrew {
+    enum ColdBrew implements Menu {
         DOLCE_COLD_BREW("돌체 콜드 브루", 5800),
         COLD_FOAM_COLD_BREW("콜드 폼 콜드 브루", 5800),
         VANILLA_CREAM_COLD_BREW("바닐라 크림 콜드 브루", 5800),
@@ -33,7 +36,7 @@ public enum Menu {
 
     @RequiredArgsConstructor
     @Getter
-    public enum Reserve {
+    enum Reserve implements Menu {
         COLD_BREW_MALT("콜드 브루 몰트", 8500),
         COLD_BREW_FLOAT("콜드 브루 플로트", 8000),
         CLASSIC_AFFOGATO("클래식 아포가토", 7000),
@@ -55,6 +58,29 @@ public enum Menu {
         CHRISTMAS_2019("크리스마스 2019", 7000),
         @Deprecated
         RWANDA_MUHONDO("르완다 무혼도", 7000);
+        private final String name;
+        private final int price;
+    }
+
+    @RequiredArgsConstructor
+    @Getter
+    enum Espresso implements Menu {
+        VANILLA_FLAT_WHITE("바닐라 플랫 화이트", 5600),
+        STARBUCKS_DOLCE_LATTE("스타벅스 돌체 라떼", 5600),
+        CAFFE_MOCHA("카페 모카", 5100),
+        CAFFE_AMERICANO("카페 아메리카노", 4100),
+        CAFFE_LATTE("카페 라떼", 4600),
+        CAPPUCCINO("카푸치노", 4600),
+        CARAMEL_MACCHIATO("카라멜 마키아또", 5600),
+        WHITE_CHOCOLATE_MOCHA("화이트 초콜릿 모카", 5600),
+        COFFEE_STARBUCKS_DOUBLE_SHOT("커피 스타벅스 더블 샷", 4800),
+        VANILLA_STARBUCKS_DOUBLE_SHOT("바닐라 스타벅스 더블 샷", 4800),
+        CARAMEL_STARBUCKS_DOUBLE_SHOT("카라멜 스타벅스 더블 샷", 4800),
+        HAZELNUT_STARBUCKS_DOUBLE_SHOUT("헤이즐넛 스타벅스 더블 샷", 4800),
+        ESPRESSO("에스프레소", 3600),
+        ESPRESSO_MACCHIATO("에스프레소 마끼아또", 3600),
+        ESPRESSO_CON_PANNA("에스프레소 콘 파나", 3800);
+
         private final String name;
         private final int price;
     }
