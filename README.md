@@ -5,4 +5,3 @@
 - slash command
   - `/starbucks`: 메뉴 리스트 조회
 - interactive components
-  - 
